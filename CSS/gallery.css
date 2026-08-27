@@ -1,0 +1,1254 @@
+:root {
+    --bg-main: #08080d;
+    --bg-card: rgba(12, 12, 20, 0.92);
+    --bg-soft: rgba(255, 255, 255, 0.025);
+
+    --text-main: #ffffff;
+    --text-muted: #8d8d9c;
+
+    --line: rgba(255, 255, 255, 0.16);
+    --line-light: rgba(255, 255, 255, 0.35);
+
+    --purple: #9b59ff;
+    --purple-soft: rgba(155, 89, 255, 0.25);
+
+    --transition: 0.3s ease;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body.gallery-page {
+    margin: 0;
+    min-height: 100vh;
+
+    background-color: var(--bg-main);
+
+    color: var(--text-main);
+
+    font-family: "Inter", Arial, sans-serif;
+}
+
+
+/* ===================== NAVIGATION ===================== */
+
+.navigation {
+    width: 100%;
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 0 6%;
+    position: relative;
+    z-index: 100;
+    background: rgba(8, 8, 13, 0.88);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.logo {
+    flex: 0 0 auto;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Orbitron", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.logo:hover,
+.logo:focus { color: #ffffff; }
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    position: relative;
+    color: #9393a0;
+    text-decoration: none;
+    font-family: "Orbitron", sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color var(--transition), transform var(--transition);
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -9px;
+    width: 0;
+    height: 1px;
+    background: var(--purple);
+    transform: translateX(-50%);
+    transition: width var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a.active {
+    color: #ffffff;
+}
+
+.nav-links a:hover { transform: translateY(-2px); }
+
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+
+.menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    color: #ffffff;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.gallery-hero {
+    min-height: calc(55vh - 75px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 90px 20px 50px;
+}
+
+
+.gallery-hero-content {
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    animation: galleryHeroAppear 0.9s ease forwards;
+}
+
+
+.gallery-small-title {
+    margin-bottom: 20px;
+
+    color: #777784;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+}
+
+
+.gallery-hero h1 {
+    margin: 0 0 22px;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: clamp(42px, 8vw, 90px);
+
+    line-height: 0.95;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+
+.gallery-hero h1 span {
+    color: transparent;
+
+    -webkit-text-stroke: 1px white;
+}
+
+
+.gallery-hero p {
+    max-width: 680px;
+
+    margin: auto;
+
+    color: var(--text-muted);
+
+    font-size: clamp(14px, 1.5vw, 17px);
+
+    line-height: 1.8;
+}
+
+
+@keyframes galleryHeroAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   GALLERY SECTION
+   ========================================================= */
+
+.gallery-section {
+    position: relative;
+
+    z-index: 1;
+
+    padding: 25px 0 120px;
+}
+
+
+.gallery-section .container {
+    max-width: 1320px;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.search-input {
+    width: 100%;
+
+    padding: 13px 6px;
+
+    color: white;
+
+    background: transparent;
+
+    border: none;
+
+    border-bottom: 1px solid #3b3b47;
+
+    border-radius: 0;
+
+    font-size: 14px;
+
+    transition: var(--transition);
+}
+
+
+.search-input::placeholder {
+    color: #62626f;
+}
+
+
+.search-input:focus {
+    color: white;
+
+    background: transparent;
+
+    border-bottom-color: var(--purple);
+
+    box-shadow: none;
+
+    outline: none;
+}
+
+
+/* =========================================================
+   FILTER BUTTONS
+   ========================================================= */
+
+.filter-chip,
+.btn-outline-canvas {
+    padding: 10px 19px;
+
+    border: 1px solid var(--line);
+
+    border-radius: 30px;
+
+    background: rgba(0, 0, 0, 0.15);
+
+    color: #a0a0ac;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1.3px;
+
+    transition: var(--transition);
+}
+
+
+.filter-chip:hover,
+.btn-outline-canvas:hover {
+    color: white;
+
+    border-color: rgba(255, 255, 255, 0.55);
+
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+.filter-chip.active,
+.btn-outline-canvas.active {
+    color: #08080d;
+
+    background: white;
+
+    border-color: white;
+}
+
+
+.fav-badge {
+    margin-left: 6px;
+
+    padding: 4px 7px;
+
+    border-radius: 20px;
+
+    color: white;
+
+    background: rgba(155, 89, 255, 0.55);
+}
+
+
+/* =========================================================
+   GALLERY ITEMS
+   ========================================================= */
+
+.gallery-item {
+    transition:
+        opacity var(--transition),
+        transform var(--transition);
+}
+
+
+.gallery-item.hidden {
+    display: none !important;
+}
+
+.gallery-card {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 3;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #07070c;
+
+    border: 1px solid var(--line);
+
+    border-radius: 14px 14px 0 0;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.gallery-card img,
+.gallery-card video,
+.gallery-preview-video {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: contain !important;
+
+    object-position: center center !important;
+
+    display: block;
+
+    margin: auto;
+
+    background: #07070c;
+
+    transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+}
+
+
+/*
+   Do NOT scale too aggressively.
+   Otherwise even contain media can look awkward.
+*/
+
+.gallery-item:hover .gallery-card {
+    transform: translateY(-4px);
+
+    border-color: rgba(155, 89, 255, 0.65);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.28),
+        0 0 25px rgba(155, 89, 255, 0.08);
+}
+
+
+.gallery-item:hover .gallery-card img,
+.gallery-item:hover .gallery-card video {
+    transform: scale(1.015);
+}
+
+
+/* =========================================================
+   FAVORITE BUTTON
+   ========================================================= */
+
+.fav-btn {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    z-index: 10;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    border-radius: 50%;
+
+    background: rgba(6, 6, 10, 0.72);
+
+    color: white;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    transition: var(--transition);
+}
+
+
+.fav-btn:hover {
+    transform: scale(1.08);
+
+    border-color: var(--purple);
+}
+
+
+.fav-btn.active {
+    color: #ff4d73;
+
+    background: white;
+
+    border-color: white;
+}
+
+
+/* =========================================================
+   GALLERY INFORMATION
+   ========================================================= */
+
+.gallery-info {
+    min-height: 118px;
+
+    padding: 15px 15px 14px;
+
+    background: rgba(10, 10, 17, 0.92);
+
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    border-radius: 0 0 14px 14px;
+}
+
+
+.gallery-title {
+    margin-bottom: 6px;
+
+    color: white;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.8px;
+}
+
+
+.gallery-meta {
+    min-height: 20px;
+
+    margin-bottom: 13px;
+
+    color: #8b8b98;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   VIEW DETAILS
+   ========================================================= */
+
+.view-details-btn {
+    width: 100%;
+
+    padding: 9px 12px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    border-radius: 6px;
+
+    color: #9999aa;
+
+    background: rgba(0, 0, 0, 0.12);
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 1.4px;
+
+    transition: var(--transition);
+}
+
+
+.view-details-btn:hover {
+    color: #08080d;
+
+    background: white;
+
+    border-color: white;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.gallery-empty {
+    margin-top: 45px;
+
+    color: #727280;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+#galleryModal .modal-dialog {
+    max-width: 650px;
+}
+
+
+#galleryModal .modal-content {
+    overflow: hidden;
+
+    color: white;
+
+    background: #0e0e15;
+
+    border: 1px solid rgba(155, 89, 255, 0.45);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(155, 89, 255, 0.08);
+}
+
+
+#galleryModal .modal-header {
+    padding: 20px 25px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+
+#galleryModal .modal-title {
+    color: white;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 18px;
+
+    letter-spacing: 1px;
+}
+
+
+#galleryModal .modal-body {
+    padding: 23px 26px 26px;
+}
+
+
+#galleryModal .modal-body p {
+    line-height: 1.7;
+}
+
+/* Keep the artwork information readable on the dark modal background. */
+#galleryModalMeta {
+    margin-bottom: 10px;
+
+    color: #c4c8d4 !important;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#galleryModalDesc {
+    margin-bottom: 16px;
+
+    color: #ffffff !important;
+
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#galleryModalTech {
+    color: #aeb4c3 !important;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+#galleryModal .modal-img,
+#galleryModalImg,
+#galleryModalVideo {
+    width: 100%;
+
+    max-height: 65vh;
+
+    object-fit: contain !important;
+
+    object-position: center !important;
+
+    background: #050508;
+
+    display: block;
+}
+
+
+#galleryModalVideo {
+    aspect-ratio: 16 / 9;
+}
+
+
+/* =========================================================
+   FOOTER
+   Basic compatibility only.
+   ========================================================= */
+
+footer {
+    padding: 38px 20px;
+
+    text-align: center;
+
+    color: #666674;
+
+    background: rgba(5, 5, 9, 0.92);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    font-size: 11px;
+}
+
+
+footer p {
+    margin: 5px 0;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    padding: 5px;
+
+    border: none;
+
+    color: white;
+
+    background: transparent;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+    .gallery-hero {
+        min-height: 45vh;
+
+        padding-top: 70px;
+    }
+
+
+    .gallery-section {
+        padding-bottom: 90px;
+    }
+
+
+    .gallery-info {
+        min-height: 120px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .navigation {
+        flex-wrap: wrap;
+
+        padding: 18px 6%;
+    }
+
+
+    .menu-toggle {
+        display: block;
+    }
+
+
+    .nav-links {
+        display: none;
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 16px;
+
+        padding: 22px 0 8px;
+    }
+
+
+    .nav-links.open {
+        display: flex;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+    .gallery-hero {
+        min-height: 38vh;
+
+        padding: 60px 18px 35px;
+    }
+
+
+    .gallery-hero h1 {
+        font-size: 42px;
+    }
+
+
+    .gallery-section {
+        padding-top: 5px;
+    }
+
+
+    /*
+       You currently use col-6 in HTML,
+       so two cards still appear on mobile.
+    */
+
+    .gallery-card {
+        aspect-ratio: 1 / 1;
+    }
+
+
+    .gallery-info {
+        min-height: 130px;
+
+        padding: 12px 10px;
+    }
+
+
+    .gallery-title {
+        font-size: 10px;
+    }
+
+
+    .gallery-meta {
+        font-size: 9px;
+    }
+
+
+    .view-details-btn {
+        font-size: 7px;
+    }
+
+
+    .fav-btn {
+        width: 31px;
+        height: 31px;
+
+        top: 8px;
+        right: 8px;
+    }
+
+}
+
+body.gallery-page {
+    position: relative;
+    isolation: isolate;
+    background-color: var(--bg-main);
+}
+
+body.gallery-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            rgba(8, 8, 13, 0.58),
+            rgba(8, 8, 13, 0.72)
+        ),
+        url("../images/galleryBackground.png") center center / cover no-repeat;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   PORTFOLIO POLISH — GALLERY
+   ========================================================= */
+
+.gallery-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-hero::after {
+    content: "";
+    position: absolute;
+    width: 560px;
+    height: 560px;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(155, 89, 255, 0.11), transparent 68%);
+    filter: blur(10px);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.gallery-hero-actions,
+.project-hero-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.showcase-link {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 999px;
+    color: #a9a9b7;
+    background: rgba(9, 9, 16, 0.62);
+    text-decoration: none;
+    font-family: "Orbitron", sans-serif;
+    font-size: 8px;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+.showcase-link:hover,
+.showcase-link:focus-visible {
+    color: #ffffff;
+    border-color: rgba(155, 89, 255, 0.72);
+    background: rgba(155, 89, 255, 0.10);
+    transform: translateY(-2px);
+}
+
+.showcase-link.is-current {
+    color: #0a0a0f;
+    border-color: #ffffff;
+    background: #ffffff;
+}
+
+.gallery-section-heading {
+    max-width: 1080px;
+    margin: 0 auto 30px;
+    padding: 0 12px;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.gallery-section-heading > div {
+    max-width: 620px;
+}
+
+.section-kicker {
+    margin-bottom: 8px;
+    color: #a77aff;
+    font-family: "Orbitron", sans-serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+}
+
+.gallery-section-heading h2 {
+    margin: 0;
+    color: #ffffff;
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.gallery-section-heading p {
+    max-width: 430px;
+    margin: 0;
+    color: #8d8d9c;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.gallery-search-shell {
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 14px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 14px;
+    background: rgba(10, 10, 17, 0.78);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.gallery-search-shell:focus-within {
+    border-color: rgba(155, 89, 255, 0.75);
+    box-shadow: 0 0 0 3px rgba(155, 89, 255, 0.10);
+}
+
+.gallery-search-shell > i {
+    flex: 0 0 auto;
+    color: #a77aff;
+    font-size: 15px;
+}
+
+.gallery-search-shell .search-input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 0;
+    border: 0;
+}
+
+.gallery-search-shell .search-input:focus {
+    border: 0;
+}
+
+.gallery-search-clear {
+    width: 34px;
+    height: 34px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 50%;
+    color: #a7a7b3;
+    background: rgba(255, 255, 255, 0.035);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.gallery-search-clear.show {
+    display: inline-flex;
+}
+
+.gallery-search-clear:hover,
+.gallery-search-clear:focus-visible {
+    color: #ffffff;
+    border-color: rgba(155, 89, 255, 0.65);
+}
+
+#filterBar {
+    margin-top: 18px;
+}
+
+.gallery-count {
+    color: #a0a0ad;
+    font-family: "Orbitron", sans-serif;
+    font-size: 8px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.gallery-category-badge {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    z-index: 9;
+    max-width: calc(100% - 66px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 6px 9px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    color: #f4f2ff;
+    background: rgba(7, 7, 12, 0.72);
+    font-family: "Orbitron", sans-serif;
+    font-size: 7px;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.gallery-info {
+    position: relative;
+}
+
+.gallery-info::before {
+    content: "ARTWORK";
+    display: block;
+    margin-bottom: 8px;
+    color: #9b59ff;
+    font-family: "Orbitron", sans-serif;
+    font-size: 6.5px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+}
+
+.gallery-status-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 28px;
+    z-index: 1200;
+    max-width: min(90vw, 420px);
+    padding: 11px 16px;
+    border: 1px solid rgba(155, 89, 255, 0.48);
+    border-radius: 999px;
+    color: #ffffff;
+    background: rgba(14, 14, 23, 0.94);
+    box-shadow: 0 16px 46px rgba(0, 0, 0, 0.42);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 14px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    font-size: 11px;
+    text-align: center;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.gallery-status-toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* Structured artwork detail: intentionally simpler than Project case studies. */
+.gallery-artwork-detail {
+    background: linear-gradient(180deg, rgba(17, 17, 27, 0.98), rgba(10, 10, 16, 0.98));
+}
+
+.gallery-modal-intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.gallery-modal-byline {
+    margin: 0 !important;
+    color: #cfd1da !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+}
+
+.gallery-modal-kind {
+    flex: 0 0 auto;
+    padding: 5px 8px;
+    border: 1px solid rgba(155, 89, 255, 0.34);
+    border-radius: 999px;
+    color: #bf9dff;
+    background: rgba(155, 89, 255, 0.08);
+    font-family: "Orbitron", sans-serif;
+    font-size: 6.5px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.gallery-detail-section {
+    padding-top: 18px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gallery-detail-label {
+    color: #8f70d9;
+    font-family: "Orbitron", sans-serif;
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+}
+
+.gallery-detail-description {
+    margin: 9px 0 0 !important;
+    color: #f6f6fa !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    line-height: 1.75 !important;
+}
+
+.gallery-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.gallery-detail-item {
+    min-height: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    padding: 13px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.gallery-detail-value {
+    color: #ffffff;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.gallery-search-clear:focus-visible,
+.showcase-link:focus-visible,
+.fav-btn:focus-visible,
+.view-details-btn:focus-visible,
+.filter-chip:focus-visible {
+    outline: 2px solid var(--purple);
+    outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+    .gallery-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 22px;
+    }
+
+    .gallery-section-heading p {
+        max-width: 100%;
+    }
+
+    .gallery-hero-actions {
+        margin-top: 24px;
+    }
+
+    .showcase-link {
+        font-size: 7px;
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-category-badge {
+        left: 8px;
+        top: 8px;
+        max-width: calc(100% - 50px);
+        padding: 5px 7px;
+        font-size: 5.5px;
+    }
+
+    .gallery-info::before {
+        font-size: 5.5px;
+    }
+
+    .gallery-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-modal-intro {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

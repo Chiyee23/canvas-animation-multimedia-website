@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Home | Animation & Multimedia Club
+    </title>
+
+    <meta
+        name="description"
+        content="Animation & Multimedia Club — learn practical animation, video editing and multimedia production skills.">
+
+    <!-- Google Fonts -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Home CSS -->
+    <link
+        rel="stylesheet"
+        href="CSS/index.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <nav
+        class="navigation"
+        aria-label="Main navigation">
+
+        <a
+            href="index.html"
+            class="logo">
+
+            CANVAS
+
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="navToggle"
+            type="button"
+            aria-label="Toggle navigation menu"
+            aria-controls="navLinks"
+            aria-expanded="false">
+
+            ☰
+
+        </button>
+
+
+        <div
+            class="nav-links"
+            id="navLinks">
+
+            <a
+                href="index.html"
+                class="active"
+                aria-current="page">
+
+                Home
+
+            </a>
+
+            <a href="HTML/about.html">
+                About
+            </a>
+
+            <a href="HTML/events.html">
+                Events
+            </a>
+
+            <a href="HTML/workshops.html">
+                Workshops
+            </a>
+
+            <a href="HTML/gallery.html">
+                Gallery
+            </a>
+
+            <a href="HTML/project.html">
+                Projects
+            </a>
+
+            <a href="HTML/join.html">
+                Join
+            </a>
+
+            <a href="HTML/contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="hero">
+
+        <div class="container hero-inner">
+
+
+            <!-- =================================================
+                 HERO LEFT
+                 ================================================= -->
+
+            <div class="hero-copy">
+
+                <p
+                    class="eyebrow"
+                    style="font-size:1rem;">
+
+                    FRAME BY FRAME, SKILL BY SKILL
+
+                </p>
+
+
+                <h2 class="hero-title">
+
+                    Tell stories
+                    that move.
+
+                </h2>
+
+
+                <p class="hero-sub">
+
+                    We're a student-run club for anyone curious about
+                    animation, video editing and multimedia production —
+                    no experience required, just a willingness to press play,
+                    break things, and make something.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a
+                        href="HTML/join.html"
+                        class="btn btn-solid">
+
+                        Join the Club
+
+                    </a>
+
+
+                    <a
+                        href="HTML/workshops.html"
+                        class="btn btn-cyan">
+
+                        Browse Workshops
+
+                    </a>
+
+                </div>
+
+
+                <!-- Local Storage Visit Counter -->
+
+                <p
+                    class="visit-counter"
+                    id="visitCounter">
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 HERO RIGHT — NEBULA DRIFT AUTOPLAY VIDEO
+                 ================================================= -->
+
+            <div class="hero-visual">
+
+                <div class="frame-stack hero-reel">
+
+
+                    <!-- Decorative Frames -->
+
+                    <span
+                        class="frame f1"
+                        aria-hidden="true">
+                    </span>
+
+                    <span
+                        class="frame f2"
+                        aria-hidden="true">
+                    </span>
+
+                    <span
+                        class="frame f3"
+                        aria-hidden="true">
+                    </span>
+
+
+                    <!-- =================================================
+                         REAL AUTOPLAY VIDEO
+                         ================================================= -->
+
+                    <div class="hero-video-shell">
+
+
+                        <video
+                            id="heroVideo"
+                            class="hero-video"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            controls
+                            preload="auto"
+                            poster="images/gallery/g9-nebula-poster.jpg">
+
+                            <source
+                                src="videos/motion-nebula.mp4"
+                                type="video/mp4">
+
+                            Your browser does not support HTML5 video.
+
+                        </video>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WHAT WE DO
+         ===================================================== -->
+
+    <section class="what-we-do">
+
+        <div class="container">
+
+            <p class="eyebrow">
+                What We Do
+            </p>
+
+
+            <p class="section-lead">
+
+                Three tracks, one community —
+                pick one up or try them all.
+
+            </p>
+
+
+            <div class="grid-3">
+
+
+                <!-- Animation -->
+
+                <div class="card">
+
+                    <span class="tag">
+                        ANIMATE
+                    </span>
+
+                    <h3>
+                        2D &amp; Motion Graphics
+                    </h3>
+
+                    <p>
+
+                        Keyframes, easing, character rigging and
+                        animated typography for short pieces and
+                        title sequences.
+
+                    </p>
+
+                </div>
+
+
+                <!-- Video Editing -->
+
+                <div class="card">
+
+                    <span class="tag">
+                        EDIT
+                    </span>
+
+                    <h3>
+                        Video Editing
+                    </h3>
+
+                    <p>
+
+                        Cutting, colour grading and sound design —
+                        turning raw footage into something worth
+                        watching.
+
+                    </p>
+
+                </div>
+
+
+                <!-- Multimedia -->
+
+                <div class="card">
+
+                    <span class="tag">
+                        CREATE
+                    </span>
+
+                    <h3>
+                        Multimedia Production
+                    </h3>
+
+                    <p>
+
+                        Storyboarding, photography and mixed-media
+                        projects that combine everything we teach.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ANIMATED STATISTICS
+         ===================================================== -->
+
+    <section class="stats-band">
+
+        <div class="container stats-grid">
+
+
+            <div
+                class="stat"
+                data-target="180">
+
+                <span
+                    class="stat-num"
+                    id="stat1">
+
+                    180
+
+                </span>
+
+                <p>
+                    Active Members
+                </p>
+
+            </div>
+
+
+            <div
+                class="stat"
+                data-target="42">
+
+                <span
+                    class="stat-num"
+                    id="stat2">
+
+                    42
+
+                </span>
+
+                <p>
+                    Workshops Run
+                </p>
+
+            </div>
+
+
+            <div
+                class="stat"
+                data-target="65">
+
+                <span
+                    class="stat-num"
+                    id="stat3">
+
+                    65
+
+                </span>
+
+                <p>
+                    Student Projects
+                </p>
+
+            </div>
+
+
+            <div
+                class="stat"
+                data-target="6">
+
+                <span
+                    class="stat-num"
+                    id="stat4">
+
+                    6
+
+                </span>
+
+                <p>
+                    Years Active
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FEATURED WORKSHOPS
+         ===================================================== -->
+
+    <section class="featured-workshops">
+
+        <div class="container">
+
+            <p class="eyebrow">
+                Coming Up
+            </p>
+
+
+            <p class="section-lead">
+
+                A quick look at what's on next —
+                the full schedule lives on the Workshops page.
+
+            </p>
+
+
+            <div class="grid-3">
+
+
+                <!-- Workshop 1 -->
+
+                <div class="card">
+
+                    <span class="tag">
+                        BEGINNER
+                    </span>
+
+                    <h3>
+                        Video Editing Fundamentals
+                    </h3>
+
+
+                    <div class="thumb">
+
+                        <img
+                            src="images/video-edit.jpeg"
+                            alt="Editor working on a timeline">
+
+                    </div>
+
+
+                    <p class="meta-row">
+
+                        <b>Date:</b>
+                        30 August 2026
+
+                    </p>
+
+
+                    <p class="meta-row">
+
+                        <b>Seats:</b>
+                        20
+
+                    </p>
+
+                </div>
+
+
+                <!-- Workshop 2 -->
+
+                <div class="card">
+
+                    <span class="tag">
+                        INTERMEDIATE
+                    </span>
+
+                    <h3>
+                        Motion Graphics
+                    </h3>
+
+
+                    <div class="thumb">
+
+                        <img
+                            src="images/motion-graphics.jpeg"
+                            alt="Motion graphics workstation">
+
+                    </div>
+
+
+                    <p class="meta-row">
+
+                        <b>Date:</b>
+                        6 September 2026
+
+                    </p>
+
+
+                    <p class="meta-row">
+
+                        <b>Seats:</b>
+                        15
+
+                    </p>
+
+                </div>
+
+
+                <!-- Workshop 3 -->
+
+                <div class="card">
+
+                    <span class="tag">
+                        BEGINNER
+                    </span>
+
+                    <h3>
+                        Storyboarding for Animation
+                    </h3>
+
+
+                    <div class="thumb">
+
+                        <img
+                            src="images/storyboard.webp"
+                            alt="Hand drawing a storyboard">
+
+                    </div>
+
+
+                    <p class="meta-row">
+
+                        <b>Date:</b>
+                        13 September 2026
+
+                    </p>
+
+
+                    <p class="meta-row">
+
+                        <b>Seats:</b>
+                        25
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="text-center"
+                style="margin-top:26px;">
+
+                <a
+                    href="HTML/workshops.html"
+                    class="btn">
+
+                    See All Workshops
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TESTIMONIALS
+         ===================================================== -->
+
+    <section class="testimonials">
+
+        <div class="container">
+
+            <p class="eyebrow">
+                From Our Members
+            </p>
+
+
+            <div
+                id="testimonialCarousel"
+                class="carousel slide"
+                data-bs-ride="carousel">
+
+
+                <div class="carousel-inner">
+
+
+                    <!-- Testimonial 1 -->
+
+                    <div class="carousel-item active">
+
+                        <div class="card testimonial-card">
+
+                            <p>
+
+                                "I joined not knowing how to use any
+                                editing software. Two workshops later
+                                I cut my first short film."
+
+                            </p>
+
+
+                            <p class="meta-row">
+
+                                <b>— Mei Ling</b>,
+                                Year 2, Software Engineering
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Testimonial 2 -->
+
+                    <div class="carousel-item">
+
+                        <div class="card testimonial-card">
+
+                            <p>
+
+                                "The storyboarding session changed how
+                                I plan every project — even ones outside
+                                animation."
+
+                            </p>
+
+
+                            <p class="meta-row">
+
+                                <b>— Arjun</b>,
+                                Year 1, Multimedia Design
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Testimonial 3 -->
+
+                    <div class="carousel-item">
+
+                        <div class="card testimonial-card">
+
+                            <p>
+
+                                "Small classes, patient facilitators,
+                                and everyone's genuinely happy to help
+                                you get unstuck."
+
+                            </p>
+
+
+                            <p class="meta-row">
+
+                                <b>— Farah</b>,
+                                Year 3, Computer Science
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#testimonialCarousel"
+                    data-bs-slide="prev"
+                    aria-label="Previous testimonial">
+
+                    <span
+                        class="carousel-control-prev-icon"
+                        aria-hidden="true">
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#testimonialCarousel"
+                    data-bs-slide="next"
+                    aria-label="Next testimonial">
+
+                    <span
+                        class="carousel-control-next-icon"
+                        aria-hidden="true">
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         NEWSLETTER
+         ===================================================== -->
+
+    <section class="newsletter">
+
+        <div class="container">
+
+            <div class="card newsletter-card">
+
+
+                <div>
+
+                    <h3>
+                        Get workshop reminders
+                    </h3>
+
+                    <p
+                        style="
+                            color:var(--text-muted);
+                            margin:0;
+                        ">
+
+                        Drop your email and we'll remember it
+                        on this device — no spam, just reminders
+                        before each session.
+
+                    </p>
+
+                </div>
+
+
+                <form
+                    id="newsletterForm"
+                    class="newsletter-form">
+
+
+                    <label
+                        for="newsletterEmail"
+                        class="visually-hidden">
+
+                        Email address
+
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="newsletterEmail"
+                        placeholder="you@example.com"
+                        required>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-solid">
+
+                        Subscribe
+
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <p
+                id="newsletterStatus"
+                class="newsletter-status">
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+
+            <p>
+
+                Animation &amp; Multimedia Club
+                &middot;
+                Building on-campus creative skills since 2020.
+
+            </p>
+
+
+            <div class="foot-links">
+
+                <a href="HTML/about.html">
+                    About
+                </a>
+
+                <a href="HTML/events.html">
+                    Events
+                </a>
+
+                <a href="HTML/workshops.html">
+                    Workshops
+                </a>
+
+                <a href="HTML/join.html">
+                    Join
+                </a>
+
+                <a href="HTML/contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         COOKIE BANNER
+         ===================================================== -->
+
+    <div
+        id="cookieBanner"
+        class="banner-strip"
+        role="dialog"
+        aria-live="polite"
+        aria-label="Cookie preference">
+
+
+        <span>
+
+            This website uses a cookie to remember whether you
+            accept or reject the cookie notice.
+            No tracking or third-party advertising cookies are used.
+
+        </span>
+
+
+        <div class="cookie-actions">
+
+
+            <button
+                class="btn btn-solid"
+                id="cookieAccept"
+                type="button">
+
+                Accept
+
+            </button>
+
+
+            <button
+                class="btn cookie-reject"
+                id="cookieReject"
+                type="button">
+
+                Reject
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         TOAST
+         ===================================================== -->
+
+    <div
+        id="toast"
+        class="toast-note">
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.min.js">
+    </script>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <script src="JavaScript/index.js"></script>
+
+</body>
+
+</html>

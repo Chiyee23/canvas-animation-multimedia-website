@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse and filter individual 2D, 3D and motion artworks from the CANVAS Animation & Multimedia Club showcase.">
+    <meta name="theme-color" content="#08080d">
+
+    <title>Gallery | Canvas Animation & Multimedia Club</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+
+    <!-- Gallery CSS -->
+    <link rel="stylesheet" href="../CSS/gallery.css">
+</head>
+
+
+<body class="gallery-page">
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <nav class="navigation">
+
+        <a href="../index.html" class="logo">
+            CANVAS
+        </a>
+
+        <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Toggle navigation menu"
+            aria-controls="navLinks"
+            aria-expanded="false">
+
+            ☰
+
+        </button>
+
+        <div class="nav-links" id="navLinks">
+
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="events.html">Events</a>
+            <a href="workshops.html">Workshops</a>
+
+            <a href="gallery.html" class="active">
+                Gallery
+            </a>
+
+            <a href="project.html">Projects</a>
+            <a href="join.html">Join</a>
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <header class="gallery-hero">
+
+        <div class="gallery-hero-content">
+
+            <div class="gallery-small-title">
+                CANVAS // GALLERY
+            </div>
+
+            <h1>
+                THE
+                <span>GALLERY.</span>
+            </h1>
+
+            <p>
+                Browse individual artworks, filter by discipline and save the
+                pieces you want to revisit.
+            </p>
+
+            <div class="gallery-hero-actions" aria-label="Creative showcase sections">
+                <span class="showcase-link is-current">
+                    <i class="bi bi-grid-3x3-gap" aria-hidden="true"></i>
+                    Artwork Gallery
+                </span>
+
+                <a class="showcase-link" href="project.html">
+                    Project Case Studies
+                    <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         GALLERY SECTION
+         ===================================================== -->
+
+    <section class="gallery-section">
+
+        <div class="container">
+
+
+            <!-- =================================================
+                 SEARCH
+                 ================================================= -->
+
+            <div class="gallery-section-heading">
+                <div>
+                    <div class="section-kicker">ARTWORK LIBRARY</div>
+                    <h2>Explore individual creative pieces.</h2>
+                </div>
+                <p>Search by artwork, creator or discipline, then save favourites locally in your browser.</p>
+            </div>
+
+            <div class="row justify-content-center mb-3">
+
+                <div class="col-lg-7">
+
+                    <label
+                        for="searchInput"
+                        class="visually-hidden">
+
+                        Search gallery
+
+                    </label>
+
+                    <div class="gallery-search-shell">
+                        <i class="bi bi-search" aria-hidden="true"></i>
+
+                        <input
+                            type="search"
+                            id="searchInput"
+                            class="form-control search-input"
+                            autocomplete="off"
+                            placeholder="Search by title, creator or category...">
+
+                        <button
+                            type="button"
+                            class="gallery-search-clear"
+                            id="searchClearBtn"
+                            aria-label="Clear gallery search"
+                            title="Clear search">
+                            <i class="bi bi-x-lg" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FILTERS
+                 ================================================= -->
+
+            <div
+                class="d-flex justify-content-center flex-wrap gap-2 mb-3"
+                id="filterBar">
+
+                <button
+                    type="button"
+                    class="btn filter-chip active"
+                    data-filter="all">
+
+                    All
+
+                </button>
+
+                <button
+                    type="button"
+                    class="btn filter-chip"
+                    data-filter="2d">
+
+                    2D
+
+                </button>
+
+                <button
+                    type="button"
+                    class="btn filter-chip"
+                    data-filter="3d">
+
+                    3D
+
+                </button>
+
+                <button
+                    type="button"
+                    class="btn filter-chip"
+                    data-filter="motion">
+
+                    Motion Graphics
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 FAVORITES
+                 ================================================= -->
+
+            <div
+                class="d-flex justify-content-center align-items-center flex-wrap gap-2 mb-4">
+
+                <button
+                    type="button"
+                    class="btn btn-outline-canvas"
+                    id="favToggle">
+
+                    <i
+                        class="bi bi-heart-fill me-1"
+                        id="favToggleIcon">
+                    </i>
+
+                    <span id="favToggleText">
+                        View Favorites
+                    </span>
+
+                    <span
+                        class="badge fav-badge"
+                        id="favCount">
+
+                        0
+
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn btn-outline-canvas"
+                    id="clearFavBtn">
+
+                    <i class="bi bi-trash me-1"></i>
+
+                    Clear Favorites
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 ARTWORK COUNT
+                 ================================================= -->
+
+            <p
+                id="galleryCount"
+                class="text-center gallery-count mb-4"
+                aria-live="polite">
+
+                18 Artworks
+
+            </p>
+
+            <div
+                class="gallery-status-toast"
+                id="galleryStatus"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true">
+            </div>
+
+
+            <!-- =====================================================
+                 GALLERY GRID
+                 JavaScript rearranges this into a curated mixed order.
+                 ===================================================== -->
+
+            <div
+                class="row g-4 mb-3"
+                id="galleryGrid">
+
+
+                <!-- =================================================
+                     2D 01
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="2d"
+                    data-id="g1"
+                    data-title="Autumn Watch"
+                    data-student="Tan Wei"
+                    data-cat-label="2D Illustration"
+                    data-desc="A warm storybook-style owl illustration exploring soft shading and an autumn colour palette."
+                    data-software="Procreate"
+                    data-year="2025"
+                    data-img="../images/gallery/g1-owl.png">
+
+                    <div class="gallery-card">
+
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            src="../images/gallery/g1-owl.png"
+                            alt="Autumn Watch">
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g1"
+                            aria-label="Save Autumn Watch to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Autumn Watch
+                        </div>
+
+                        <div class="gallery-meta">
+                            Tan Wei &middot; 2D Illustration
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g1">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     2D 02
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="2d"
+                    data-id="g2"
+                    data-title="Blade of Dawn"
+                    data-student="Lim Jia"
+                    data-cat-label="2D Illustration"
+                    data-desc="A stylised armoured warrior artwork built around a glowing energy blade and dramatic rim lighting."
+                    data-software="Clip Studio Paint"
+                    data-year="2025"
+                    data-img="../images/gallery/g2-warrior-blue.png">
+
+                    <div class="gallery-card">
+
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            src="../images/gallery/g2-warrior-blue.png"
+                            alt="Blade of Dawn">
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g2"
+                            aria-label="Save Blade of Dawn to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Blade of Dawn
+                        </div>
+
+                        <div class="gallery-meta">
+                            Lim Jia &middot; 2D Illustration
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g2">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     2D 03
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="2d"
+                    data-id="g3"
+                    data-title="Verdant Reaper"
+                    data-student="Aisha N."
+                    data-cat-label="2D Illustration"
+                    data-desc="A fantasy character concept exploring toxic-green lighting and dramatic visual contrast."
+                    data-software="Clip Studio Paint"
+                    data-year="2024"
+                    data-img="../images/gallery/g3-warrior-green.png">
+
+                    <div class="gallery-card">
+
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            src="../images/gallery/g3-warrior-green.png"
+                            alt="Verdant Reaper">
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g3"
+                            aria-label="Save Verdant Reaper to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Verdant Reaper
+                        </div>
+
+                        <div class="gallery-meta">
+                            Aisha N. &middot; 2D Illustration
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g3">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     2D 04
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="2d"
+                    data-id="g11"
+                    data-title="Neon Courier"
+                    data-student="Chen Yi Xuan"
+                    data-cat-label="Digital Illustration"
+                    data-desc="A futuristic character concept combining neon colour, dramatic lighting and cyber-inspired visual styling."
+                    data-software="Adobe Photoshop"
+                    data-year="2025"
+                    data-img="../images/gallery/g11-neon-courier.jpg">
+
+                    <div class="gallery-card">
+
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            src="../images/gallery/g11-neon-courier.jpg"
+                            alt="Neon Courier">
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g11"
+                            aria-label="Save Neon Courier to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Neon Courier
+                        </div>
+
+                        <div class="gallery-meta">
+                            Chen Yi Xuan &middot; Digital Illustration
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g11">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     2D 05
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="2d"
+                    data-id="g12"
+                    data-title="Moonlit Kimono"
+                    data-student="Nur Ain"
+                    data-cat-label="Digital Illustration"
+                    data-desc="A character illustration inspired by traditional fashion and a soft moonlit colour palette."
+                    data-software="Procreate"
+                    data-year="2025"
+                    data-img="../images/gallery/g12-moonlit-kimono.jpg">
+
+                    <div class="gallery-card">
+
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            src="../images/gallery/g12-moonlit-kimono.jpg"
+                            alt="Moonlit Kimono">
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g12"
+                            aria-label="Save Moonlit Kimono to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Moonlit Kimono
+                        </div>
+
+                        <div class="gallery-meta">
+                            Nur Ain &middot; Digital Illustration
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g12">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     2D 06
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="2d"
+                    data-id="g14"
+                    data-title="Late Night Deadline"
+                    data-student="Farah Iman"
+                    data-cat-label="Digital Illustration"
+                    data-desc="A narrative illustration capturing the atmosphere of a late-night creative workspace."
+                    data-software="Adobe Photoshop"
+                    data-year="2024"
+                    data-img="../images/gallery/g14-late-night-deadline.jpg">
+
+                    <div class="gallery-card">
+
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            src="../images/gallery/g14-late-night-deadline.jpg"
+                            alt="Late Night Deadline">
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g14"
+                            aria-label="Save Late Night Deadline to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Late Night Deadline
+                        </div>
+
+                        <div class="gallery-meta">
+                            Farah Iman &middot; Digital Illustration
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g14">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     3D 01
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="3d"
+                    data-id="g4"
+                    data-title="Gilded Grid"
+                    data-student="Marcus Ooi"
+                    data-cat-label="3D Render"
+                    data-desc="A procedural cube field highlighting a single gold accent among metallic geometric forms."
+                    data-software="Blender"
+                    data-year="2025"
+                    data-img="../images/gallery/g4-cubes-gold.jpg">
+
+                    <div class="gallery-card">
+
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            src="../images/gallery/g4-cubes-gold.jpg"
+                            alt="Gilded Grid">
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g4"
+                            aria-label="Save Gilded Grid to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Gilded Grid
+                        </div>
+
+                        <div class="gallery-meta">
+                            Marcus Ooi &middot; 3D Render
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g4">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     3D 02
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="3d"
+                    data-id="g5"
+                    data-title="Wooden Horizon"
+                    data-student="Chen Yi Xuan"
+                    data-cat-label="3D Render"
+                    data-desc="A tunnel-style arrangement of wooden blocks rendered with a soft central light source."
+                    data-software="Cinema 4D"
+                    data-year="2024"
+                    data-img="../images/gallery/g5-cubes-wood.jpg">
+
+                    <div class="gallery-card">
+
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            src="../images/gallery/g5-cubes-wood.jpg"
+                            alt="Wooden Horizon">
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g5"
+                            aria-label="Save Wooden Horizon to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Wooden Horizon
+                        </div>
+
+                        <div class="gallery-meta">
+                            Chen Yi Xuan &middot; 3D Render
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g5">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     3D 03
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="3d"
+                    data-id="g6"
+                    data-title="Sweet Slice"
+                    data-student="Nur Ain"
+                    data-cat-label="3D Render"
+                    data-desc="A playful stylised render featuring watermelon slices against a bright pastel environment."
+                    data-software="Blender"
+                    data-year="2025"
+                    data-img="../images/gallery/g6-watermelon.jpg">
+
+                    <div class="gallery-card">
+
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            src="../images/gallery/g6-watermelon.jpg"
+                            alt="Sweet Slice">
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g6"
+                            aria-label="Save Sweet Slice to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Sweet Slice
+                        </div>
+
+                        <div class="gallery-meta">
+                            Nur Ain &middot; 3D Render
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g6">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     3D 04
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="3d"
+                    data-id="g17"
+                    data-title="Glass Orchard"
+                    data-student="Jason Lee"
+                    data-cat-label="3D / Digital Art"
+                    data-desc="An experimental composition exploring transparent forms, reflections and layered visual depth."
+                    data-software="Blender + Photoshop"
+                    data-year="2025"
+                    data-img="../images/gallery/g17-glass-orchard.jpg">
+
+                    <div class="gallery-card">
+
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            src="../images/gallery/g17-glass-orchard.jpg"
+                            alt="Glass Orchard">
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g17"
+                            aria-label="Save Glass Orchard to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Glass Orchard
+                        </div>
+
+                        <div class="gallery-meta">
+                            Jason Lee &middot; 3D / Digital Art
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g17">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     3D 05
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="3d"
+                    data-id="g18"
+                    data-title="Fractured Tiles"
+                    data-student="Lim Jia"
+                    data-cat-label="3D Design"
+                    data-desc="A geometric experiment exploring fragmented surfaces, depth and repeating structural patterns."
+                    data-software="Blender"
+                    data-year="2024"
+                    data-img="../images/gallery/g18-fractured-tiles.jpg">
+
+                    <div class="gallery-card">
+
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            src="../images/gallery/g18-fractured-tiles.jpg"
+                            alt="Fractured Tiles">
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g18"
+                            aria-label="Save Fractured Tiles to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Fractured Tiles
+                        </div>
+
+                        <div class="gallery-meta">
+                            Lim Jia &middot; 3D Design
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g18">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     3D 06
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="3d"
+                    data-id="g22"
+                    data-title="Prism Drop"
+                    data-student="Aisha N."
+                    data-cat-label="3D / Digital Art"
+                    data-desc="An abstract geometric study exploring reflective surfaces, refraction-inspired colour and depth."
+                    data-software="Blender"
+                    data-year="2025"
+                    data-img="../images/gallery/g22-prism-drop.jpg">
+
+                    <div class="gallery-card">
+
+                        <img
+                            loading="lazy"
+                            decoding="async"
+                            src="../images/gallery/g22-prism-drop.jpg"
+                            alt="Prism Drop">
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g22"
+                            aria-label="Save Prism Drop to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Prism Drop
+                        </div>
+
+                        <div class="gallery-meta">
+                            Aisha N. &middot; 3D / Digital Art
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g22">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     MOTION 01
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="motion"
+                    data-id="g7"
+                    data-title="Forest Ambience"
+                    data-student="Wong Kar Ling"
+                    data-cat-label="Motion Graphics"
+                    data-desc="A looping ambient forest scene exploring peaceful environmental movement."
+                    data-software="Adobe After Effects"
+                    data-year="2025"
+                    data-img="../images/gallery/g7-forest-poster.jpg"
+                    data-video="../videos/motion-forest.mp4">
+
+                    <div class="gallery-card">
+
+                        <video
+                            class="gallery-preview-video"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            poster="../images/gallery/g7-forest-poster.jpg">
+
+                            <source
+                                src="../videos/motion-forest.mp4"
+                                type="video/mp4">
+
+                        </video>
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g7"
+                            aria-label="Save Forest Ambience to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Forest Ambience
+                        </div>
+
+                        <div class="gallery-meta">
+                            Wong Kar Ling &middot; Motion Graphics
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g7">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     MOTION 02
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="motion"
+                    data-id="g9"
+                    data-title="Nebula Drift"
+                    data-student="Adam Leong"
+                    data-cat-label="Motion Graphics"
+                    data-desc="A colourful animated nebula exploring flowing particles, colour transitions and atmospheric movement."
+                    data-software="Adobe After Effects"
+                    data-year="2025"
+                    data-img="../images/gallery/g9-nebula-poster.jpg"
+                    data-video="../videos/motion-nebula.mp4">
+
+                    <div class="gallery-card">
+
+                        <video
+                            class="gallery-preview-video"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            poster="../images/gallery/g9-nebula-poster.jpg">
+
+                            <source
+                                src="../videos/motion-nebula.mp4"
+                                type="video/mp4">
+
+                        </video>
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g9"
+                            aria-label="Save Nebula Drift to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Nebula Drift
+                        </div>
+
+                        <div class="gallery-meta">
+                            Adam Leong &middot; Motion Graphics
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g9">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     MOTION 03
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="motion"
+                    data-id="g10"
+                    data-title="Golden Corridor"
+                    data-student="Marcus Ooi"
+                    data-cat-label="Motion Graphics"
+                    data-desc="A rotating futuristic tunnel built around glowing gold strips and reflective surfaces."
+                    data-software="Adobe After Effects"
+                    data-year="2025"
+                    data-img="../images/gallery/g10-tunnel-poster.jpg"
+                    data-video="../videos/motion-tunnel.mp4">
+
+                    <div class="gallery-card">
+
+                        <video
+                            class="gallery-preview-video"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            poster="../images/gallery/g10-tunnel-poster.jpg">
+
+                            <source
+                                src="../videos/motion-tunnel.mp4"
+                                type="video/mp4">
+
+                        </video>
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g10"
+                            aria-label="Save Golden Corridor to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Golden Corridor
+                        </div>
+
+                        <div class="gallery-meta">
+                            Marcus Ooi &middot; Motion Graphics
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g10">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     MOTION 04
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="motion"
+                    data-id="g24"
+                    data-title="Chromatic Vortex"
+                    data-student="Aina Rahman"
+                    data-cat-label="Motion Graphics"
+                    data-desc="An abstract animated vortex combining rotational movement, vibrant colour and layered effects."
+                    data-software="Adobe After Effects"
+                    data-year="2025"
+                    data-img="../images/gallery/g24-vortex-poster.jpg"
+                    data-video="../videos/motion-vortex.mp4">
+
+                    <div class="gallery-card">
+
+                        <video
+                            class="gallery-preview-video"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            poster="../images/gallery/g24-vortex-poster.jpg">
+
+                            <source
+                                src="../videos/motion-vortex.mp4"
+                                type="video/mp4">
+
+                        </video>
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g24"
+                            aria-label="Save Chromatic Vortex to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Chromatic Vortex
+                        </div>
+
+                        <div class="gallery-meta">
+                            Aina Rahman &middot; Motion Graphics
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g24">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     MOTION 05
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="motion"
+                    data-id="g25"
+                    data-title="Violet Current"
+                    data-student="Jason Lee"
+                    data-cat-label="Motion Graphics"
+                    data-desc="A purple abstract motion study featuring fluid shapes, light trails and rhythmic looping movement."
+                    data-software="Adobe After Effects"
+                    data-year="2025"
+                    data-img="../images/gallery/g25-violet-poster.jpg"
+                    data-video="../videos/motion-violet.mp4">
+
+                    <div class="gallery-card">
+
+                        <video
+                            class="gallery-preview-video"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            poster="../images/gallery/g25-violet-poster.jpg">
+
+                            <source
+                                src="../videos/motion-violet.mp4"
+                                type="video/mp4">
+
+                        </video>
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g25"
+                            aria-label="Save Violet Current to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Violet Current
+                        </div>
+
+                        <div class="gallery-meta">
+                            Jason Lee &middot; Motion Graphics
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g25">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     MOTION 06
+                     ================================================= -->
+
+                <div
+                    class="col-6 col-md-4 gallery-item"
+                    data-category="motion"
+                    data-id="g26"
+                    data-title="Neon Pulse"
+                    data-student="Farah Iman"
+                    data-cat-label="Motion Graphics"
+                    data-desc="A looping neon animation using flowing lines and luminous highlights against a dark background."
+                    data-software="Adobe After Effects"
+                    data-year="2025"
+                    data-img="../images/gallery/g26-neonlines-poster.jpg"
+                    data-video="../videos/motion-neonlines.mp4">
+
+                    <div class="gallery-card">
+
+                        <video
+                            class="gallery-preview-video"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="metadata"
+                            poster="../images/gallery/g26-neonlines-poster.jpg">
+
+                            <source
+                                src="../videos/motion-neonlines.mp4"
+                                type="video/mp4">
+
+                        </video>
+
+                        <button
+                            type="button"
+                            class="fav-btn"
+                            data-id="g26"
+                            aria-label="Save Neon Pulse to favorites">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+                    </div>
+
+                    <div class="gallery-info">
+
+                        <div class="gallery-title">
+                            Neon Pulse
+                        </div>
+
+                        <div class="gallery-meta">
+                            Farah Iman &middot; Motion Graphics
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn view-details-btn w-100"
+                            data-id="g26">
+
+                            View Details
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 EMPTY STATE
+                 ================================================= -->
+
+            <p
+                class="text-center gallery-empty"
+                id="emptyState"
+                style="display:none;">
+
+                No artwork matches your search or filter.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ARTWORK DETAIL MODAL
+         ===================================================== -->
+
+    <div
+        class="modal fade"
+        id="galleryModal"
+        tabindex="-1"
+        aria-labelledby="galleryModalLabel"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-header border-0">
+
+                    <h5
+                        class="modal-title"
+                        id="galleryModalLabel">
+
+                        Artwork Title
+
+                    </h5>
+
+                    <button
+                        type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+
+                </div>
+
+
+                <img
+                            loading="lazy"
+                            decoding="async"
+                    id="galleryModalImg"
+                    src=""
+                    alt=""
+                    class="modal-img">
+
+
+                <video
+                    id="galleryModalVideo"
+                    class="modal-img"
+                    style="display:none;"
+                    controls
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata">
+                </video>
+
+
+                <div class="modal-body gallery-artwork-detail">
+
+                    <div class="gallery-modal-intro">
+                        <p class="gallery-modal-byline" id="galleryModalMeta"></p>
+                        <span class="gallery-modal-kind">INDIVIDUAL ARTWORK</span>
+                    </div>
+
+                    <div class="gallery-detail-section">
+                        <div class="gallery-detail-label">ARTWORK NOTES</div>
+                        <p class="gallery-detail-description" id="galleryModalDesc"></p>
+                    </div>
+
+                    <div class="gallery-detail-grid">
+                        <div class="gallery-detail-item">
+                            <span class="gallery-detail-label">SOFTWARE</span>
+                            <span class="gallery-detail-value" id="galleryModalSoftware"></span>
+                        </div>
+
+                        <div class="gallery-detail-item">
+                            <span class="gallery-detail-label">YEAR</span>
+                            <span class="gallery-detail-value" id="galleryModalYear"></span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Canvas Animation & Multimedia Club
+        </p>
+
+        <p>
+            Create. Animate. Inspire.
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <script src="../JavaScript/gallery.js"></script>
+
+
+    <!-- Mobile Navigation -->
+
+    <script>
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        if (menuToggle && navLinks) {
+
+            menuToggle.addEventListener(
+                "click",
+                function () {
+
+                    const isOpen =
+                        navLinks.classList.toggle("open");
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        String(isOpen)
+                    );
+
+                }
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>

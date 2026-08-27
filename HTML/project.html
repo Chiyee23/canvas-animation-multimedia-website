@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Explore complete 2D, 3D and motion project case studies from the CANVAS Animation & Multimedia Club showcase.">
+
+    <meta name="theme-color" content="#08080d">
+
+    <title>Projects | Canvas Animation & Multimedia Club</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" href="../CSS/project.css">
+</head>
+
+
+<body class="project-page">
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <nav class="navigation">
+
+        <a href="../index.html" class="logo">
+            CANVAS
+        </a>
+
+        <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Toggle navigation menu"
+            aria-controls="navLinks"
+            aria-expanded="false">
+            ☰
+        </button>
+
+        <div class="nav-links" id="navLinks">
+
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="events.html">Events</a>
+            <a href="workshops.html">Workshops</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="project.html" class="active">Projects</a>
+            <a href="join.html">Join</a>
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <header class="project-hero">
+
+        <div class="project-hero-content">
+
+            <div class="project-small-title">
+                CANVAS // PROJECTS
+            </div>
+
+            <h1>
+                STUDENT
+                <span>PROJECTS.</span>
+            </h1>
+
+            <p>
+                Explore complete project case studies with creative goals,
+                tools, outcomes and motion previews.
+            </p>
+
+            <div
+                class="project-hero-actions"
+                aria-label="Creative showcase sections">
+
+                <a
+                    class="showcase-link"
+                    href="gallery.html">
+
+                    <i
+                        class="bi bi-arrow-left"
+                        aria-hidden="true">
+                    </i>
+
+                    Artwork Gallery
+                </a>
+
+                <span class="showcase-link is-current">
+
+                    <i
+                        class="bi bi-journal-richtext"
+                        aria-hidden="true">
+                    </i>
+
+                    Project Case Studies
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         PROJECT SECTION
+         ===================================================== -->
+
+    <section class="project-section">
+
+        <div class="container">
+
+            <!-- Section heading -->
+
+            <div class="project-section-heading">
+
+                <div>
+
+                    <div class="section-kicker">
+                        PROJECT CASE STUDIES
+                    </div>
+
+                    <h2>
+                        From concept to finished outcome.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Each card opens a fuller project story.
+                    The five most recently opened projects are
+                    remembered locally and marked with a VIEWED badge.
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 CATEGORY FILTER
+                 ================================================= -->
+
+            <div
+                class="d-flex justify-content-center flex-wrap gap-2 mb-4"
+                id="projectFilterBar">
+
+                <button
+                    type="button"
+                    class="btn project-filter-chip active"
+                    data-filter="all">
+                    All
+                </button>
+
+                <button
+                    type="button"
+                    class="btn project-filter-chip"
+                    data-filter="2d">
+                    2D
+                </button>
+
+                <button
+                    type="button"
+                    class="btn project-filter-chip"
+                    data-filter="3d">
+                    3D
+                </button>
+
+                <button
+                    type="button"
+                    class="btn project-filter-chip"
+                    data-filter="motion">
+                    Motion Graphics
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 PROJECT COUNT
+                 ================================================= -->
+
+            <p
+                id="projectCount"
+                class="text-center project-count mb-4"
+                aria-live="polite">
+
+                27 Student Projects
+
+            </p>
+
+
+            <!-- =================================================
+                 PROJECT GRID
+                 ================================================= -->
+
+            <div
+                class="row g-4"
+                id="projectGrid">
+            </div>
+
+
+            <!-- =================================================
+                 EMPTY STATE
+                 ================================================= -->
+
+            <p
+                id="projectEmpty"
+                class="text-center text-muted mt-5"
+                style="display:none;">
+
+                No projects are available in this category.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROJECT DETAIL MODAL
+         ===================================================== -->
+
+    <div
+        class="modal fade"
+        id="projectModal"
+        tabindex="-1"
+        aria-labelledby="projectModalLabel"
+        aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+
+                <div class="modal-header border-0">
+
+                    <h5
+                        class="modal-title"
+                        id="projectModalLabel">
+
+                        Project Title
+
+                    </h5>
+
+                    <button
+                        type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                    </button>
+
+                </div>
+
+
+                <!-- Project Image -->
+
+                <img
+                    id="modalImg"
+                    src=""
+                    alt=""
+                    class="modal-img">
+
+
+                <!-- Project Video -->
+
+                <video
+                    id="modalVideo"
+                    class="modal-img"
+                    style="display:none;"
+                    controls
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata">
+                </video>
+
+
+                <!-- Modal Content -->
+
+                <div class="modal-body project-case-study">
+
+                    <div class="project-modal-intro">
+
+                        <p
+                            class="project-modal-byline"
+                            id="modalMeta">
+                        </p>
+
+                        <span class="project-modal-kind">
+                            PROJECT CASE STUDY
+                        </span>
+
+                    </div>
+
+
+                    <!-- Project Overview -->
+
+                    <div class="project-detail-section">
+
+                        <div class="project-detail-label">
+                            PROJECT OVERVIEW
+                        </div>
+
+                        <p
+                            class="project-overview-text"
+                            id="modalOverview">
+                        </p>
+
+                    </div>
+
+
+                    <!-- Project Information -->
+
+                    <div class="project-detail-grid">
+
+                        <div class="project-detail-item">
+
+                            <span class="project-detail-label">
+                                TOOLS
+                            </span>
+
+                            <span
+                                class="project-detail-value"
+                                id="modalTools">
+                            </span>
+
+                        </div>
+
+
+                        <div class="project-detail-item">
+
+                            <span class="project-detail-label">
+                                YEAR
+                            </span>
+
+                            <span
+                                class="project-detail-value"
+                                id="modalYear">
+                            </span>
+
+                        </div>
+
+
+                        <div class="project-detail-item">
+
+                            <span class="project-detail-label">
+                                PROJECT TYPE
+                            </span>
+
+                            <span
+                                class="project-detail-value"
+                                id="modalType">
+                            </span>
+
+                        </div>
+
+
+                        <div class="project-detail-item">
+
+                            <span class="project-detail-label">
+                                TEAM
+                            </span>
+
+                            <span
+                                class="project-detail-value"
+                                id="modalTeam">
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Project Outcome -->
+
+                    <div
+                        class="project-detail-section project-outcome-section">
+
+                        <div class="project-detail-label">
+                            PROJECT OUTCOME
+                        </div>
+
+                        <p
+                            class="project-outcome-text"
+                            id="modalOutcome">
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+        <p>
+            © 2026 Canvas Animation & Multimedia Club
+        </p>
+
+        <p>
+            Create. Animate. Inspire.
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <script src="../JavaScript/project.js"></script>
+
+
+    <!-- Mobile Navigation -->
+
+    <script>
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        if (menuToggle && navLinks) {
+
+            menuToggle.addEventListener(
+                "click",
+                function () {
+
+                    const isOpen =
+                        navLinks.classList.toggle("open");
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        String(isOpen)
+                    );
+
+                }
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
