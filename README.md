@@ -30,26 +30,13 @@ I worked on:
 
 ## Key Features
 
-The website includes:
-
 * Responsive web design
 * Interactive gallery
 * Project showcase
-* Search and filtering
-* Sorting functionality
+* Search, filtering and sorting
 * Form interaction
 * Browser-based data storage
 * Interactive user interface
-
-## My Section
-
-The Gallery and Projects section allows users to:
-
-* Browse multimedia content
-* Search for projects
-* Filter project information
-* Sort displayed content
-* View project details through interactive components
 
 ## Challenges
 
